@@ -1,5 +1,8 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
+    <p>
+        <a style="border-bottom: unset;" href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3_tp.gif" height="25" style="display:inline;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+    </p>
     {{- if site.Copyright }}
     <span>{{ site.Copyright | markdownify }}</span>
     {{- else }}
@@ -7,8 +10,9 @@
     {{- end }}
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> Theme
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://v6.51.la/user/application" target="_blank"><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/JvUDwnR8WxIRefWQ/quote.js?theme=#1690FF,#333333,#FFFFFF,#FFFFFF,#FFFFFF,#1690FF,14&f=14&display=0,0,0,0,0,0,0,1"></script></a>
     </span>
 </footer>
 {{- end }}
