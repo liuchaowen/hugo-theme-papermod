@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
 <meta name="robots" content="index, follow">
@@ -105,8 +106,7 @@
 {{- /* Javascript */}}
 
 {{- /* LA data */}}
-<script defer crossorigin="anonymous" charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script defer crossorigin="anonymous">LA.init({id:"JvUDwnR8WxIRefWQ",ck:"JvUDwnR8WxIRefWQ"})</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JvUDwnR8WxIRefWQ&ck=JvUDwnR8WxIRefWQ"></script>
 
 {{- /* Favicons */}}
 <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
