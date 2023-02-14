@@ -59,3 +59,43 @@
     background-image: url(/star-fill.svg);
     background-size: auto 100%
 }
+
+/* pagination */
+
+.pagination__title {
+	display: flex;
+	text-align: center;
+	position: relative;
+	margin: 20px 0
+}
+
+.pagination__title-h {
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px 10px;
+	background: #fff;
+	background: var(--theme);
+	color: #999;
+	color: var(--secondary);
+	font-size: .8rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: .1em;
+	z-index: 1
+}
+
+.dark .pagination__title-h {
+	background: #292a2d;
+	background: var(--theme);
+	color: #73747b;
+	color: var(--secondary)
+}
+
+.pagination__title hr {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin-top: 15px;
+	z-index: 0
+}
