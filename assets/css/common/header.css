@@ -33,7 +33,7 @@
     pointer-events: none;
     transform: translate(0, -10%);
     border-radius: 6px;
-    margin-inline-end: 8px;
+    /* margin-inline-end: 8px; */
 }
 
 button#theme-toggle {
