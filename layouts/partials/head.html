@@ -103,17 +103,6 @@
 {{- end }}
 {{- end }}
 
-{{- /* Javascript */}}
-
-{{- /* LA data */}}
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JvUDwnR8WxIRefWQ&ck=JvUDwnR8WxIRefWQ"></script>
-
-{{- /* Busuanzi data */}}
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-{{- /* Theme Switch data */}}
-<script async src="/js/application.js"></script>
-
 {{- /* Favicons */}}
 <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
@@ -122,9 +111,6 @@
 <link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}">
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
-
-{{- /* font */}}
-<link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
 
 {{- /* RSS */}}
 {{ range .AlternativeOutputFormats -}}
