@@ -1,7 +1,9 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range site.RegularPages -}}
-    {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) }}
-    {{- $.Scratch.Add "index" (dict "title" .Title "content" .Plain "permalink" .Permalink "summary" .Summary) -}}
+{{- range .Site.RegularPages -}}
+    {{- if and (ne .Layout `archives`) (ne .Layout `search`) (ne .Layout `links`) (ne .Layout `friends`) (ne .Layout `about`) (ne .Layout `movies`) (ne .Layout `books`) (ne .Title ``)}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink "date" .Date "section" .Section) -}}
     {{- end }}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
+
+
