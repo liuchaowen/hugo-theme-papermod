@@ -31,3 +31,6 @@
 
 - id: code_copied
   translation: "已複製！"
+
+- id: views
+  translation: "閱讀"
