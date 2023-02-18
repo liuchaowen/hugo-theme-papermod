@@ -111,8 +111,15 @@
 .brand-item {display:inline-block;padding:10px 15px;background: var(--theme);}
 .dark .links-item{background: #252627;background: var(--dark-header);}
 
+/* 底部图标 */
 .footer .logos img{
-	/* background-color: var(--entry); */
+	background-color: var(--entry);
 	display:inline;
 	padding: 2px 3px;
+}
+
+/* github卡 */
+.shortcode-card header{
+	max-width: 450px;
+	background-color: var(--entry);
 }
