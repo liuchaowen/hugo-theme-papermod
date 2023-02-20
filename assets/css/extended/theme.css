@@ -113,9 +113,9 @@
 
 /* 底部图标 */
 .footer .logos img{
-	background-color: var(--entry);
+	/* background-color: var(--entry); */
 	display:inline;
-	padding: 2px 3px;
+	padding: 3px 5px;
 }
 
 /* github卡 */
