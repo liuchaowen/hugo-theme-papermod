@@ -9,6 +9,8 @@
   src="https://cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.js"
 ></script>
 
+{{- if .IsHome }}
 {{- /* cal-heatmap */ -}}
 <script type="text/javascript" src="js/cal-heatmap.js"></script>
 <link rel="stylesheet" href="css/cal-heatmap.css"></script>
+{{- end }}
