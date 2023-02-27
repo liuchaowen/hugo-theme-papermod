@@ -1,13 +1,18 @@
 {{- with site.Params.homeInfoParams }}
-<article class="first-entry home-info">
+<article class="first-entry">
+  <div class="home-info">
     <header class="entry-header">
-        <h1>{{ .Title | markdownify }}</h1>
+      <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">
-        {{ .Content | markdownify }}
-    </div>
+    <div class="entry-content">{{ .Content | markdownify }}</div>
     <footer class="entry-footer">
-        {{ partial "social_icons.html" site.Params.socialIcons }}
+      {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
+  </div>
+
+  <div id="cal-heatmap"></div>
+  <span id="tooltip-span"></span>
+  
 </article>
+
 {{- end -}}
