@@ -12,11 +12,16 @@
 {{- /* font */}}
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
 
+{{- /* Theme Switch data */}}
+<script async src="/js/application.js"></script>
+
+{{- if .IsHome }}
 {{- /* cal-heatmap */}}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/cal-heatmap@4.0.0-beta.9/dist/cal-heatmap.css"></script>
 
-
-{{- /* Theme Switch data */}}
-<script async src="/js/application.js"></script>
+{{/* tooltip */}}
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+{{- end }}
