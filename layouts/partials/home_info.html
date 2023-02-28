@@ -9,9 +9,12 @@
       {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
   </div>
-
-  <div id="cal-heatmap"></div>
-  
+  <div class="cal-heatmap-container">
+    <div title="查看更多" onclick="viewMoreHeapmap()">
+      <img id="view-more-icon" src="/image/arrow-left.svg" />
+    </div>
+    <div id="cal-heatmap"></div>
+  </div>
 </article>
 
 {{- end -}}
