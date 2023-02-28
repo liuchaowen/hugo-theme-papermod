@@ -1,4 +1,17 @@
 {{- with site.Params.homeInfoParams }}
+{{/*总字数*/}}
+{{ $scratch := newScratch}}
+{{ range (where site.Pages "Kind" "page") }}
+    {{ $scratch.Add "total" .WordCount }}
+{{ end }}
+{{ $wordnum := div ($scratch.Get "total") 10000.0}}
+{{/*互链数*/}}
+{{ $linknum := "-"}}
+{{ range (where site.Pages "RelPermalink" "/links/") }}
+    {{ $linklist := findRE `(?s)<div class="archive-item links-item cf-friends" .*?>.*?</div>` .Content }}
+    {{ $linknum = len $linklist }}
+{{ end }}
+
 <article class="first-entry">
   <div class="home-info">
     <header class="entry-header">
@@ -10,10 +23,18 @@
     </footer>
   </div>
   <div class="cal-heatmap-container">
-    <div title="查看更多" onclick="viewMoreHeapmap()">
+    <div title="查看今年" onclick="viewMoreHeapmap()">
       <img id="view-more-icon" src="/image/arrow-left.svg" />
     </div>
     <div id="cal-heatmap"></div>
+    <div class="site-stat">
+      <p><span>{{ len (where site.RegularPages "Section" "post")  }}</span>文章:</p>
+      <p><span id="run-num">-</span>运行:</p>
+      <p><span id="comment-num">-</span>评论:</p>
+      <p><span id="words-num"> {{ printf "%.1f" $wordnum }}w</span>字数:</p>
+      <p><span id="like-num">-</span>点赞:</p>
+      <p><span id="link-num">{{ $linknum }}</span>互链:</p>
+    </div>
   </div>
 </article>
 
