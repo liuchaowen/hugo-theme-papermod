@@ -17,7 +17,9 @@
     <header class="entry-header">
       <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">{{ .Content | markdownify }}</div>
+    <div class="entry-content">
+      <span>L</span>ive <span>A</span>&nbsp;<span>P</span>eaceful Life, <span>T</span>ake <span>O</span>f Your <span>P</span>ath.
+    </div>
     <footer class="entry-footer">
       {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
@@ -33,7 +35,7 @@
       <p><span id="comment-num">···</span>评论</p>
       <p><span> {{ printf "%.1f" $wordnum }}w</span>字数</p>
       <p><span>{{ len site.Taxonomies.tags.ByCount }}</span>标签</p>
-      <p><span>{{ $linknum }}</span>互链</p>
+      <p><span>{{ $linknum }}</span>友邻</p>
     </div>
   </div>
 </article>
