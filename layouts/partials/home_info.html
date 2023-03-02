@@ -23,17 +23,17 @@
     </footer>
   </div>
   <div class="cal-heatmap-container">
-    <div title="查看今年" onclick="viewMoreHeapmap()">
+    <div class="arrow-icon" title="查看今年" onclick="viewMoreHeapmap()"  style="display: none;">
       <img id="view-more-icon" src="/image/arrow-left.svg" />
     </div>
     <div id="cal-heatmap"></div>
-    <div class="site-stat">
-      <p><span id="run-num">···</span>运行:</p>
-      <p><span>{{ len (where site.RegularPages "Section" "post")  }}</span>文章:</p>
-      <p><span id="comment-num">···</span>评论:</p>
-      <p><span> {{ printf "%.1f" $wordnum }}w</span>字数:</p>
-      <p><span>{{ len site.Taxonomies.tags.ByCount }}</span>标签:</p>
-      <p><span>{{ $linknum }}</span>互链:</p>
+    <div class="site-stat" style="display: none;">
+      <p><span id="run-num">···</span>运行</p>
+      <p><span>{{ len (where site.RegularPages "Section" "post")  }}</span>文章</p>
+      <p><span id="comment-num">···</span>评论</p>
+      <p><span> {{ printf "%.1f" $wordnum }}w</span>字数</p>
+      <p><span>{{ len site.Taxonomies.tags.ByCount }}</span>标签</p>
+      <p><span>{{ $linknum }}</span>互链</p>
     </div>
   </div>
 </article>
