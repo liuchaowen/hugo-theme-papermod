@@ -2,6 +2,6 @@
 {{$linkhost := "https://project.xlap.top/jump/?target=" }}
 <div class="archive-item links-item cf-friends" title={{ .Get "des" }} >
 	<img loading="lazy" class="archive-list-image avatar" src="{{- if .Get "src" -}}{{- .Get "src" -}}{{- else -}}https://gravatar.loli.net/avatar/{{ .Get "md5" -}}{{- end -}}"/>
-	<a target="_blank" href="{{$linkhost}}{{ .Get "url" }}" >{{ .Get "name" }}</a>
+	<a rel="noreferrer" target="_blank" href="{{$linkhost}}{{ .Get "url" }}" >{{ .Get "name" }}</a>
 </div>
 {{ end }}

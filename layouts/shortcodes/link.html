@@ -2,4 +2,4 @@
 {{- $text := (.Get 0) }}
 {{- $url := (.Get 1) }}
 <!--需要自行部署-->
-<a class="out-link" target="_blank" href="{{$linkhost}}{{$url}}">{{$text}}</a>
+<a rel="noreferrer" class="out-link" target="_blank" href="{{$linkhost}}{{$url}}">{{$text}}</a>
