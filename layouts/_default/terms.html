@@ -1,5 +1,4 @@
 {{- define "main" }}
-<div id="word-cloud"></div>
 {{- if .Title }}
 <header class="page-header">
     <!-- <h1>{{ .Title }}</h1> -->
@@ -10,6 +9,38 @@
     {{- end }}
 </header>
 {{- end }}
+
+<!--标签云-->
+
+<!-- <canvas id="tag-canvas"></canvas>
+<script src="/js/wordcloud2.js"></script>
+{{- range $key, $value := .Data.Terms.Alphabetical }}
+    {{ $.Scratch.Set "tempArr" (slice .Name .Count) }}
+    {{ $keyword := $.Scratch.Get "tempArr"}}
+    {{ if eq "" ($.Scratch.Get "tagsArr") }}
+    {{ $.Scratch.Set "tagsArr" (slice $keyword) }}
+    {{ else }}
+    {{ $.Scratch.Add "tagsArr" (slice $keyword) }}
+    {{ end }}
+{{- end }}
+{{ $result := ($.Scratch.Get "tagsArr")}}
+<span id="tag-temp" style="display:none">{{$result}}</span>
+<script>
+    var wordFreqData =  document.querySelector("#tag-temp").innerHTML;
+    console.log(wordFreqData)
+    WordCloud(document.querySelector("#tag-canvas"), {
+          "list": wordFreqData,//或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+          "gridSize": 6, // 密集程度 数字越小越密集
+          "weightFactor": 1, // 字体大小=原始大小*weightFactor
+          "maxFontSize": 60, //最大字号
+          "minFontSize": 14, //最小字号
+          "fontWeight": 'normal', //字体粗细
+          "fontFamily": 'Times, serif', // 字体
+          "color": 'random-light', // 字体颜色 'random-dark' 或者 'random-light'
+          "backgroundColor": '#333', // 背景颜色
+          "rotateRatio": 1 // 字体倾斜(旋转)概率，1代表总是倾斜(旋转)
+      });
+</script> -->
 
 <ul class="terms-tags">
     {{- $type := .Type }}
