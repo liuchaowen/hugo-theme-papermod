@@ -15,8 +15,11 @@
 {{- /* twikoo */}}
 <script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
 
+{{- if eq .Section "tags"}}
 {{/* 标签云 */}}
+<link rel="stylesheet" href="/css/word-cloud.css"\>
 <script src="/js/wordcloud2.js"></script>
+{{- end }}
 
 {{- /* Main App CSS/JS */}}
 <link rel="stylesheet" href="/css/styles.css"\>
@@ -31,7 +34,6 @@
 {{/* tooltip */}}
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
-
 {{- end }}
 
 

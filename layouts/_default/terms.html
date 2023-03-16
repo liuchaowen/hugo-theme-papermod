@@ -1,5 +1,4 @@
 {{- define "main" }}
-
 {{- if .Title }}
 <header class="page-header">
     <!-- <h1>{{ .Title }}</h1> -->
@@ -13,7 +12,7 @@
 
 <!--标签云-->
 <div id="sourrounding_div" style="width:100%;height:100%;min-height: 500px;">
-    <canvas id="tag-canvas"></canvas>
+    <div id="tag-canvas"></div>
 </div>
 
 <script src="/js/wordcloud2.js"></script>
@@ -27,18 +26,19 @@
 {{ $result := ($.Scratch.Get "tagsMap")}}
 <span id="tag-temp" style="display:none">{{$result | jsonify }}</span>
 <script>
+    //因为前期每个标签值比较小，帮X一个系数
+    var XISHU = 20;
     //为了动态宽度
     var div = document.querySelector("#sourrounding_div");
     var canvas = document.querySelector("#tag-canvas");
-    canvas.height = div.offsetHeight;
-    canvas.width  = div.offsetWidth;
-
+    canvas.style.width = div.offsetWidth+'px';
+    canvas.style.height = div.offsetHeight+'px';
     var wordFreqData =  document.querySelector("#tag-temp").innerHTML;
     var jsonObj = JSON.parse(wordFreqData);
     var arr = []
     jsonObj.forEach(element => {
         var key = Object.keys(element);
-        var itemArr = [key[0],element[key]*20];
+        var itemArr = [key[0],element[key]*XISHU];
         arr.push(itemArr);
     });
     //获取当前是暗色还是浅色
@@ -56,15 +56,14 @@
       canvas.addEventListener('wordcloudstop', function (e) {
             //动画
             setTimeout(() => {
-                let els = document.querySelectorAll(".word-color");
-                console.log('动画',els)
+                var els = document.querySelectorAll(".word-color");
                 Array.from(els).forEach((el) => {
+                    console.log('动画',el)
                     el.classList.add("word-animate")
                 })
             }, 2000);
             //点击
             document.querySelectorAll('.tag-cloud-item').forEach(function (element) {
-                console.log('点击',element)
                 const text = element.innerHTML;
                 element.innerHTML = `<a href="/tags/${text}" style="color: inherit;">${text}</a>`;
             });
