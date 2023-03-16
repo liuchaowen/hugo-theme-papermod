@@ -1,4 +1,5 @@
 {{- define "main" }}
+
 {{- if .Title }}
 <header class="page-header">
     <!-- <h1>{{ .Title }}</h1> -->
@@ -11,38 +12,67 @@
 {{- end }}
 
 <!--标签云-->
+<div id="sourrounding_div" style="width:100%;height:100%;min-height: 500px;">
+    <canvas id="tag-canvas"></canvas>
+</div>
 
-<!-- <canvas id="tag-canvas"></canvas>
 <script src="/js/wordcloud2.js"></script>
 {{- range $key, $value := .Data.Terms.Alphabetical }}
-    {{ $.Scratch.Set "tempArr" (slice .Name .Count) }}
-    {{ $keyword := $.Scratch.Get "tempArr"}}
-    {{ if eq "" ($.Scratch.Get "tagsArr") }}
-    {{ $.Scratch.Set "tagsArr" (slice $keyword) }}
+    {{ if eq "" ($.Scratch.Get "tagsMap") }}
+        {{ $.Scratch.Set "tagsMap" (slice (dict .Name .Count))  }}
     {{ else }}
-    {{ $.Scratch.Add "tagsArr" (slice $keyword) }}
+        {{ $.Scratch.Add "tagsMap" (slice (dict .Name .Count)) }}
     {{ end }}
 {{- end }}
-{{ $result := ($.Scratch.Get "tagsArr")}}
-<span id="tag-temp" style="display:none">{{$result}}</span>
+{{ $result := ($.Scratch.Get "tagsMap")}}
+<span id="tag-temp" style="display:none">{{$result | jsonify }}</span>
 <script>
+    //为了动态宽度
+    var div = document.querySelector("#sourrounding_div");
+    var canvas = document.querySelector("#tag-canvas");
+    canvas.height = div.offsetHeight;
+    canvas.width  = div.offsetWidth;
+
     var wordFreqData =  document.querySelector("#tag-temp").innerHTML;
-    console.log(wordFreqData)
-    WordCloud(document.querySelector("#tag-canvas"), {
-          "list": wordFreqData,//或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+    var jsonObj = JSON.parse(wordFreqData);
+    var arr = []
+    jsonObj.forEach(element => {
+        var key = Object.keys(element);
+        var itemArr = [key[0],element[key]*20];
+        arr.push(itemArr);
+    });
+    //获取当前是暗色还是浅色
+    var isDark = document.body.className.includes("dark");
+    WordCloud(canvas, {
+          "list": arr,//或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
           "gridSize": 6, // 密集程度 数字越小越密集
           "weightFactor": 1, // 字体大小=原始大小*weightFactor
-          "maxFontSize": 60, //最大字号
-          "minFontSize": 14, //最小字号
           "fontWeight": 'normal', //字体粗细
           "fontFamily": 'Times, serif', // 字体
-          "color": 'random-light', // 字体颜色 'random-dark' 或者 'random-light'
-          "backgroundColor": '#333', // 背景颜色
-          "rotateRatio": 1 // 字体倾斜(旋转)概率，1代表总是倾斜(旋转)
+          "color": isDark?'random-light':'random-dark', // 字体颜色 'random-dark' 或者 'random-light'
+          "backgroundColor": 'transparent', // 背景颜色
+          "classes": "tag-cloud-item word-color", //用于点击事件
       });
-</script> -->
+      canvas.addEventListener('wordcloudstop', function (e) {
+            //动画
+            setTimeout(() => {
+                let els = document.querySelectorAll(".word-color");
+                console.log('动画',els)
+                Array.from(els).forEach((el) => {
+                    el.classList.add("word-animate")
+                })
+            }, 2000);
+            //点击
+            document.querySelectorAll('.tag-cloud-item').forEach(function (element) {
+                console.log('点击',element)
+                const text = element.innerHTML;
+                element.innerHTML = `<a href="/tags/${text}" style="color: inherit;">${text}</a>`;
+            });
+        });
+    
+</script>
 
-<ul class="terms-tags">
+<!-- <ul class="terms-tags">
     {{- $type := .Type }}
     {{- range $key, $value := .Data.Terms.Alphabetical }}
     {{- $name := .Name }}
@@ -53,6 +83,6 @@
     </li>
     {{- end }}
     {{- end }}
-</ul>
+</ul> -->
 
 {{- end }}{{/* end main */ -}}
