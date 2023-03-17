@@ -45,6 +45,7 @@
     var isDark = document.body.className.includes("dark");
     WordCloud(canvas, {
           "list": arr,//或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+          "shape": "pentagon", //形状 circle (default), cardioid (心型), diamond, square, triangle-forward, triangle, pentagon, and star.
           "gridSize": 6, // 密集程度 数字越小越密集
           "weightFactor": 1, // 字体大小=原始大小*weightFactor
           "fontWeight": 'normal', //字体粗细
@@ -58,7 +59,6 @@
             setTimeout(() => {
                 var els = document.querySelectorAll(".word-color");
                 Array.from(els).forEach((el) => {
-                    console.log('动画',el)
                     el.classList.add("word-animate")
                 })
             }, 2000);
