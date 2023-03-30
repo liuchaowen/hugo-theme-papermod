@@ -16,7 +16,7 @@
 {{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
 {{- end }}
 
-<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>  {{i18n "views"}}</span>
+<span id="finicount_views"></span>>  {{i18n "views"}}
 &nbsp;·&nbsp;
 
 {{- with ($scratch.Get "meta") }}
