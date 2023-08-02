@@ -1,5 +1,27 @@
 {{ define "main" }}
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<link href="https://unpkg.com/artalk@2/dist/ArtalkLite.css" rel="stylesheet">
 <style>
+  .dark .artalk{
+  --at-color-font: #fff;
+  --at-color-deep: #e7e7e7;
+  --at-color-sub: #e7e7e7;
+  --at-color-grey: #fff;
+  --at-color-meta: #fff;
+  --at-color-border: #2d3235;
+  --at-color-light: #687a86;
+  --at-color-bg: #1e2224;
+  --at-color-bg-transl: rgba(30, 34, 36, .95);
+  --at-color-bg-grey: #46494e;
+  --at-color-bg-grey-transl: rgba(8, 8, 8, .95);
+  --at-color-bg-light: rgba(29, 161, 242, .1);
+  --at-color-main: #0083ff;
+  --at-color-red: #ff5652;
+  --at-color-pink: #fa5a57;
+  --at-color-yellow: #ff7c37;
+  --at-color-green: #4caf50;
+  --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1))
+}
   .dark .aplayer {
     background: #212121;
   }
@@ -168,7 +190,8 @@
   }
   .bbs-creator,
   .bbs-date,
-  .bbs-dot {
+  .bbs-dot ,
+  .tkcount{
     position: relative;
     top: -5px;
   }
@@ -176,7 +199,7 @@
     font-weight: 800;
     margin: 0 0.5rem;
   }
-  .bbs-text,
+  .bbs-text,.resour,.item-comment{background: #fff;font-size: 1em;padding:10px 14px;position: relative;}
   .resour {
     background: #eaeaea;
     border-radius: 8px;
@@ -189,10 +212,7 @@
     margin-top: 2px;
     padding: 5px 14px;
   }
-  .bbs-text {
-    overflow: hidden;
-    max-height: 90vh;
-  }
+  .bbs-text{overflow-y: scroll;overflow-x:hidden;max-height:50vh;}
   .bbs-text blockquote {
     font-family: KaiTi, STKaiti, STFangsong;
     margin: 0 0 0 1rem;
@@ -239,7 +259,9 @@
   .dark .bbs-text p {
     color: #fafafa;
   }
-
+  .dark .item-comment{background:#4a4b50;}
+  .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
+  .dark .bbs-coment-svg svg.icon{fill:#ffffff;}
   .loader {
     position: relative;
     margin: 3rem auto;
@@ -387,5 +409,7 @@
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<script src="/js/twikoo.js"></script>
+<script src="https://unpkg.com/artalk@2/dist/ArtalkLite.js"></script>
 <script src="/js/bbs-lmm.js"></script>
 {{ end }}
