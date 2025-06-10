@@ -1,28 +1,31 @@
 {{- /* Head custom content area start */ -}}
-{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
-{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+{{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the
+
+<head></head> section of every page. */ -}}
+{{- /* Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{- /* Head custom content area end */ -}}
 
 {{- /* LA data */}}
-<script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js?id=JvUDwnR8WxIRefWQ&ck=JvUDwnR8WxIRefWQ"></script>
+<!-- <script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js?id=JvUDwnR8WxIRefWQ&ck=JvUDwnR8WxIRefWQ"></script> -->
 
 {{- /* Busuanzi data */}}
 <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 {{- /* font */}}
-<link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print"
+    onload="this.media='all'">
 
 {{- /* twikoo */}}
-<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+<!-- <script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script> -->
 
 {{- if eq .Section "tags"}}
 {{/* 标签云 */}}
-<link rel="stylesheet" href="/css/word-cloud.css"\>
+<link rel="stylesheet" href="/css/word-cloud.css" \>
 <script src="/js/wordcloud2.js"></script>
 {{- end }}
 
 {{- /* Main App CSS/JS */}}
-<link rel="stylesheet" href="/css/styles.css"\>
+<link rel="stylesheet" href="/css/styles.css" \>
 <script src="/js/application.js"></script>
 
 {{- if .IsHome }}
@@ -35,5 +38,3 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 {{- end }}
-
-
