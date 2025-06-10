@@ -2,22 +2,22 @@
 
 <!--如果page的description没设置成no-comments-->
 {{- if ne .Description "no-comments" }}
-    <div class="pagination__title">
+<!-- <div class="pagination__title">
     <span class="pagination__title-h">欢迎留言</span>
     <hr />
-    </div>
+    </div> -->
 
-    <!--插件A:utteranc评论功能-->
-    <!-- <div id="comments"></div> -->
+<!--插件A:utteranc评论功能-->
+<!-- <div id="comments"></div> -->
 
-    <!--插件B:twikoo评论功能-->
-    <div id="tcomment"></div>
+<!--插件B:twikoo评论功能-->
+<!-- <div id="tcomment"></div>
     <script>
     twikoo.init({
         envId: "https://db.twk.xlap.top",
         el: "#tcomment",
     });
-    </script>
+    </script> -->
 {{- end }}
 
 {{- /* Comments area end */ -}}
